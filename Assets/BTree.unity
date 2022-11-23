@@ -2007,11 +2007,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ffb0e8e1ca14543912179b509b16f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 642336162}
+  state: 0
+  treeStatus: 1
   diamond: {fileID: 1550492363}
+  painting: {fileID: 1904932022}
   van: {fileID: 541877858}
   backDoor: {fileID: 919599686}
   frontDoor: {fileID: 1791870521}
-  state: 0
   money: 800
 --- !u!1 &716268924
 GameObject:
