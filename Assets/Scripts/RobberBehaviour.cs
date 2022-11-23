@@ -3,45 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RobberBehaviour : MonoBehaviour
+public class RobberBehaviour : BTAgent
 {
-    BehaviourTree tree;
+
 
     public GameObject diamond;
+    public GameObject painting;
     public GameObject van;
     public GameObject backDoor;
     public GameObject frontDoor;
-    NavMeshAgent agent;
-
-    public enum ActionState { IDLE, WORKING};
-    public ActionState state = ActionState.IDLE;
-
-    Node.Status treeStatus = Node.Status.RUNNING;
 
     [Range(0, 1000)]
     public int money = 800;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         agent = this.GetComponent<NavMeshAgent>();
 
         tree = new BehaviourTree();
         Sequence steal = new Sequence("Steal Something");
         Leaf goToDiamond = new Leaf("Go To Diamond", GoToDiamond);
+        Leaf goToPainting = new Leaf("Go To Painting", GoToPainting);
         Leaf hasGotMoney = new Leaf("Has got Money", HasMoney);
         Leaf goToVan = new Leaf("Go to Van", GoToVan);
         Leaf goToBackDoor = new Leaf("Go to Backdoor", GoToBackDoor);
         Leaf goToFrontDoor = new Leaf("Go to Frontdoor", GoToFrontDoor);
         Selector openDoor = new Selector("Open Door");
 
+        Selector selectObject = new Selector("Select Object To Steal");
+
+        Inverter invertMoney = new Inverter("Invert Money");
+        invertMoney.AddChild(hasGotMoney);
+
         openDoor.AddChild(goToFrontDoor);
         openDoor.AddChild(goToBackDoor);
-        steal.AddChild(hasGotMoney);
+        steal.AddChild(invertMoney);
         steal.AddChild(openDoor);
-        //steal.AddChild(goToBackDoor);
-        steal.AddChild(goToDiamond);
-        //steal.AddChild(goToBackDoor);
+
+        selectObject.AddChild(goToDiamond);
+        selectObject.AddChild(goToPainting);
+        steal.AddChild(selectObject);
         steal.AddChild(goToVan);
         tree.AddChild(steal);
 
@@ -69,9 +72,21 @@ public class RobberBehaviour : MonoBehaviour
 
         return s;
     }
+
+    public Node.Status GoToPainting()
+    {
+        Node.Status s = GoToLocation(painting.transform.position);
+
+        if (s == Node.Status.SUCCES)
+        {
+            painting.transform.parent = this.gameObject.transform;
+        }
+
+        return s;
+    }
     public Node.Status HasMoney()
     {
-        if (money >= 500)
+        if (money <= 500)
         {
             return Node.Status.FAILURE;
         }
@@ -107,7 +122,7 @@ public class RobberBehaviour : MonoBehaviour
         {
             if (!door.GetComponent<Lock>().isLocked)
             {
-                door.SetActive(false);
+                door.GetComponent<NavMeshObstacle>().enabled = false;
                 return Node.Status.SUCCES;
             }
             return Node.Status.FAILURE;
@@ -139,12 +154,4 @@ public class RobberBehaviour : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (treeStatus != Node.Status.SUCCES)
-        {
-            treeStatus = tree.Procces();
-        }
-    }
 }

@@ -16,7 +16,7 @@ public class BehaviourTree : Node
 
     public override Status Procces()
     {
-        return children[currentChildren].Procces();
+        return children.Count == 0 ? Status.SUCCES : children[currentChildren].Procces();
     }
 
     struct NodeLevel
