@@ -2015,6 +2015,15 @@ MonoBehaviour:
   van: {fileID: 541877858}
   backDoor: {fileID: 919599686}
   frontDoor: {fileID: 1791870521}
+  art:
+  - {fileID: 1904932022}
+  - {fileID: 1101234485}
+  - {fileID: 1922895633}
+  - {fileID: 1544815185}
+  - {fileID: 1959054990}
+  - {fileID: 925317490}
+  - {fileID: 425408384}
+  - {fileID: 915494408}
   money: 800
 --- !u!1 &716268924
 GameObject:
