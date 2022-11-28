@@ -12,11 +12,14 @@ public class NPC : BTAgent
 
     public GameObject pointsContent;
 
+    private Animator animator;
+
 
     new void Start()
     {
         base.Start();
         agent = this.GetComponent<NavMeshAgent>();
+        animator = this.GetComponent<Animator>();
 
         tree = new BehaviourTree();
 
@@ -50,11 +53,13 @@ public class NPC : BTAgent
 
     public Node.Status GoToPoint(int i)
     {
+        status = Status.WALKING;
         if (!points[i].activeSelf) return Node.Status.FAILURE;
         Node.Status s = GoToLocation(points[i].transform.position);
 
         if (s == Node.Status.SUCCES)
         {
+            status = Status.IDLE;
             //points[i].transform.parent = this.gameObject.transform;
             //pickUp = points[i];
         }
@@ -65,7 +70,15 @@ public class NPC : BTAgent
 
     void Update()
     {
-        
+        switch (status)
+        {
+            case Status.IDLE:
+                animator.SetBool("isWalking", false);
+                break;
+            case Status.WALKING:
+                animator.SetBool("isWalking", true);
+                break;
+        }
     }
 
 

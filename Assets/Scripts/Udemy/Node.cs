@@ -19,6 +19,16 @@ public class Node
         sortOrder = order;
     }
 
+    public void Reset()
+    {
+        foreach(Node n in children)
+        {
+            n.Reset();
+        }
+        currentChildren = 0;
+
+    }
+
     public virtual Status Procces()
     {
         return children[currentChildren].Procces();

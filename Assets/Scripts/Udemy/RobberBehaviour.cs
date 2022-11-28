@@ -241,11 +241,11 @@ public class RobberBehaviour : BTAgent
         {
             agent.SetDestination(destination);
             state = ActionState.WORKING;
-        }else if (Vector3.Distance(agent.pathEndPosition, destination) >= 2)
+        }else if (Vector3.Distance(agent.pathEndPosition, destination) >= ConstantsNPC.DISTANCE)
         {
             state = ActionState.IDLE;
             return Node.Status.FAILURE;
-        }else if  (distantToTarget  < 2)
+        }else if  (distantToTarget  < ConstantsNPC.DISTANCE)
         {
             state = ActionState.IDLE;
             return Node.Status.SUCCES;
