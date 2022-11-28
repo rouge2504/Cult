@@ -25,6 +25,6 @@ public class GameplayManager : MonoBehaviour
     public void UpdateClicks()
     {
         clicks++;
-        clicksText.text = clicks.ToString();
+        clicksText.text = clicks.ToString() + " Souls";
     }
 }
