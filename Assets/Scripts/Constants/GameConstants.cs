@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameConstants
 {
     public const string SIGN_GO = "Sign";
+    public const string GAME_DATA = "GameData.json";
 }
