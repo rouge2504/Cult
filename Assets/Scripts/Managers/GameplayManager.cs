@@ -51,5 +51,6 @@ public class GameplayManager : MonoBehaviour
         Clicks++;
         gameData.clicks = Clicks;
         SaveSystem.Instance.Write(gameData, GameConstants.GAME_DATA);
+        PoolManager.instance.skullPool.Next();
     }
 }
