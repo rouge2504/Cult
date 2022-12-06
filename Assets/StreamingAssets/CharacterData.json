@@ -1,1 +1,39 @@
-{}
+{
+    "Items": [
+        {
+            "name": "Mono Generico 1",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        },
+        {
+            "name": "Mono Generico 2",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        },
+        {
+            "name": "Mono Generico 3",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        },
+        {
+            "name": "Mono Generico 4",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        },
+        {
+            "name": "Mono Generico 5",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        },
+        {
+            "name": "Mono Generico 6",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        },
+        {
+            "name": "Mono Generico 7",
+            "timeToAddSoul": 0.5,
+            "description": "Hola"
+        }
+    ]
+}

@@ -43,19 +43,19 @@ public class SaveSystem
         return o;
     }
 
-    public object[] Read(Type type, string jsonPath)
+    public NPC_Character[] ReadNPC(string jsonPath)
     {
         string path = URL_EDITOR + "/" + jsonPath;
         if (!File.Exists(path))
         {
             Debug.Log("The File Dont Exist");
-            object[] temp = new object[] { Activator.CreateInstance(type) };
+            NPC_Character[] temp = new NPC_Character[0];
             Write(temp, jsonPath);
             return temp;
         }
         string json = File.ReadAllText(path);
-
-        object[] o = JsonHelper.FromJson<NPC_Character>(json);
+        Debug.Log(json);
+        NPC_Character[] o = JsonHelper.FromJson<NPC_Character>(json);
         return o;
     }
 
@@ -68,10 +68,10 @@ public class SaveSystem
         File.WriteAllText(path, json);
     }
 
-    public void Write(object[] o, string jsonPath)
+    public void WriteNPC(NPC_Character[] o, string jsonPath)
     {
         string path = URL_EDITOR + "/" + jsonPath;
-        string json = JsonHelper.ToJson(o);
+        string json = JsonHelper.ToJson<NPC_Character>(o, true);
         File.WriteAllText(path, json);
     }
 

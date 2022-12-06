@@ -6,19 +6,25 @@ public class NPCManager : MonoBehaviour
 {
     public static NPCManager instance = null;
 
-    private NPC_Character[] npcs;
+    public NPC_Character[] npcs;
+
+    private void Awake()
+    {
+        
+        instance = this;
+        Init();
+    }
 
     void Start()
     {
-        instance = this;
-        Init();
     }
 
     void Init()
     {
         if (SaveSystem.Instance.Exists(GameConstants.CHARACTER_DATA))
         {
-            //npcs = (NPC_Character)SaveSystem.Instance.Read(npcs.GetType(), GameConstants.CHARACTER_DATA);
+            npcs = SaveSystem.Instance.ReadNPC(GameConstants.CHARACTER_DATA);
+
         }
         else
         {
@@ -29,7 +35,8 @@ public class NPCManager : MonoBehaviour
                 
             };
 
-            SaveSystem.Instance.Write(npcs, GameConstants.CHARACTER_DATA);
+
+            SaveSystem.Instance.WriteNPC(npcs, GameConstants.CHARACTER_DATA);
             
         }
     }
