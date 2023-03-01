@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,9 @@ public class StoreCharacterManager : MonoBehaviour
     private GameObject contentStoreCharacter;
 
     [SerializeField]
-    private GameObject prefabCharacterItem;
+    private GameObject prefabCharacterItemButton;
+    [SerializeField]
+    private GameObject[] charactersPrefabs;
 
     
     private List<NPCItem> items = new List<NPCItem>();
@@ -24,12 +27,24 @@ public class StoreCharacterManager : MonoBehaviour
         for (int i = 0; i < NPCManager.instance.npcs.Length; i++)
         {
             
-            GameObject item = Instantiate(prefabCharacterItem, contentStoreCharacter.transform);
+            GameObject item = Instantiate(prefabCharacterItemButton, contentStoreCharacter.transform);
             item.GetComponent<NPCItem>().nameText.text = NPCManager.instance.npcs[i].name;
             item.GetComponent<NPCItem>().descriptionText.text = NPCManager.instance.npcs[i].description;
 
+            item.GetComponent<NPCItem>().buyButton.onClick.AddListener(() => SummonCharacter(NPCManager.instance.npcs[i].namePrefab));
+
             items.Add(item.GetComponent<NPCItem>());
 
+        }
+    }
+
+    public void SummonCharacter(string characterName)
+    {
+        //GameObject characterPrefab_ = charactersPrefabs.
+
+        foreach (GameObject characterPrefab in charactersPrefabs)
+        {
+           // if (characterName == )
         }
     }
 

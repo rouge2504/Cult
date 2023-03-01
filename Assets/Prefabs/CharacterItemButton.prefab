@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 6099466258171502647}
   - component: {fileID: 4277051275665258478}
   m_Layer: 5
-  m_Name: CharacterItem
+  m_Name: CharacterItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 7857454193164010881}
   descriptionText: {fileID: 5135477233006522988}
+  buyButton: {fileID: 3918500363908074979}
 --- !u!1 &5169777860290548823
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,3 +828,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2781356671858607839, guid: b0f639c3f42fa45f88859cda7d1ee061, type: 3}
   m_PrefabInstance: {fileID: 1222747612972665663}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3918500363908074979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2781356671858607836, guid: b0f639c3f42fa45f88859cda7d1ee061, type: 3}
+  m_PrefabInstance: {fileID: 1222747612972665663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

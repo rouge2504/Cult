@@ -20,6 +20,7 @@ public class NPC : BTAgent
         base.Start();
         agent = this.GetComponent<NavMeshAgent>();
         animator = this.GetComponent<Animator>();
+        pointsContent = GameObject.FindGameObjectWithTag(GameConstants.POINTS_NPC);
 
         tree = new BehaviourTree();
 
