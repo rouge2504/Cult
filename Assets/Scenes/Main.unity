@@ -11815,7 +11815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoreCharacterScrollRect: {fileID: 1926550596}
   prefabCharacterItemButton: {fileID: 4824522914977108282, guid: 8cfb9ee58c58f50449f21fc575d67230, type: 3}
-  charactersPrefabs: []
+  charactersPrefabs:
+  - {fileID: 406237620426725576, guid: f45c7842774aa514a95bed05d46bcc5a, type: 3}
 --- !u!1001 &1288728954
 PrefabInstance:
   m_ObjectHideFlags: 0
