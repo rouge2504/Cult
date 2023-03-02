@@ -30,8 +30,8 @@ public class NPCManager : MonoBehaviour
         {
             npcs = new NPC_Character[]
             {
-                new NPC_Character("Zombo", 0.5f, "Hola"),
-                new NPC_Character("Zimbo", 0.5f, "Hola"),
+                new NPC_Character("Zombo", "Bapho", 0.5f, "Hola"),
+                new NPC_Character("Zimbo", "Baphy", 0.5f, "Hola"),
                 
             };
 
