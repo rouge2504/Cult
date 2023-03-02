@@ -44,7 +44,10 @@ public class StoreCharacterManager : MonoBehaviour
 
         foreach (GameObject characterPrefab in charactersPrefabs)
         {
-           // if (characterName == )
+            if (characterName == characterPrefab.GetComponent<NPC>().nameNPC)
+            {
+                Debug.Log("Invocando!!!!");
+            }
         }
     }
 

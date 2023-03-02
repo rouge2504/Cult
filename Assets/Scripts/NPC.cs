@@ -5,12 +5,15 @@ using UnityEngine.AI;
 public class NPC : BTAgent
 {
     public enum Status { IDLE, WALKING};
+    
+    public string nameNPC;
 
     public Status status = Status.IDLE;
 
     public GameObject[] points;
 
     public GameObject pointsContent;
+    
 
     private Animator animator;
 

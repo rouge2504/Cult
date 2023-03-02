@@ -1322,6 +1322,7 @@ MonoBehaviour:
   agent: {fileID: 407379874777499805}
   state: 0
   treeStatus: 1
+  nameNPC: Demon
   status: 0
   points: []
   pointsContent: {fileID: 0}
