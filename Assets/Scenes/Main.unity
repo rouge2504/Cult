@@ -11443,6 +11443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcs: []
+  actualNPCs: []
 --- !u!1 &1241221424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8402612841224120692, guid: fd9601cb549f76c44835d8be0f212bfc, type: 3}
@@ -11817,6 +11818,7 @@ MonoBehaviour:
   prefabCharacterItemButton: {fileID: 4824522914977108282, guid: 8cfb9ee58c58f50449f21fc575d67230, type: 3}
   charactersPrefabs:
   - {fileID: 406237620426725576, guid: f45c7842774aa514a95bed05d46bcc5a, type: 3}
+  summonPoint: {fileID: 1985730822}
 --- !u!1001 &1288728954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18990,6 +18992,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: af2902baf0db5bc44af7d188fed79347, type: 3}
   m_PrefabInstance: {fileID: 1978274710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1985730821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985730822}
+  m_Layer: 0
+  m_Name: SummonPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1985730822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985730821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.52, y: -0, z: 8.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1992236196
 PrefabInstance:
   m_ObjectHideFlags: 0

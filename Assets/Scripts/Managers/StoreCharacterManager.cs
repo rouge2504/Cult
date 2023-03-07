@@ -14,6 +14,9 @@ public class StoreCharacterManager : MonoBehaviour
     [SerializeField]
     private GameObject[] charactersPrefabs;
 
+    [SerializeField]
+    private Transform summonPoint;
+
     
     private List<NPCItem> items = new List<NPCItem>();
     // Start is called before the first frame update
@@ -30,8 +33,8 @@ public class StoreCharacterManager : MonoBehaviour
             GameObject item = Instantiate(prefabCharacterItemButton, contentStoreCharacter.transform);
             item.GetComponent<NPCItem>().nameText.text = NPCManager.instance.npcs[i].name;
             item.GetComponent<NPCItem>().descriptionText.text = NPCManager.instance.npcs[i].description;
-
-            item.GetComponent<NPCItem>().buyButton.onClick.AddListener(() => SummonCharacter(NPCManager.instance.npcs[i].namePrefab));
+            string namePrefab = NPCManager.instance.npcs[i].namePrefab;
+            item.GetComponent<NPCItem>().buyButton.onClick.AddListener(() => SummonCharacter(namePrefab));
 
             items.Add(item.GetComponent<NPCItem>());
 
@@ -47,6 +50,7 @@ public class StoreCharacterManager : MonoBehaviour
             if (characterName == characterPrefab.GetComponent<NPC>().nameNPC)
             {
                 Debug.Log("Invocando!!!!");
+                NPCManager.instance.Add(Instantiate(characterPrefab, summonPoint.position, Quaternion.identity));
             }
         }
     }

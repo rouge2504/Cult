@@ -9,6 +9,7 @@ public class NPC_Character
     public float timeToAddSoul;
     public string namePrefab;
     public string description;
+    public int count;
 
     public NPC_Character(string name, string namePrefab, float timeToAddSoul, string description)
     {

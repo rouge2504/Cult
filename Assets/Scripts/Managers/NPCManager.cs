@@ -8,10 +8,13 @@ public class NPCManager : MonoBehaviour
 
     public NPC_Character[] npcs;
 
+    public List<GameObject> actualNPCs;
+
     private void Awake()
     {
         
         instance = this;
+        actualNPCs = new List<GameObject>();
         Init();
     }
 
@@ -39,6 +42,11 @@ public class NPCManager : MonoBehaviour
             SaveSystem.Instance.WriteNPC(npcs, GameConstants.CHARACTER_DATA);
             
         }
+    }
+
+    public void Add(GameObject npcTemp)
+    {
+        actualNPCs.Add(npcTemp);
     }
 
 }
